@@ -8,7 +8,15 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.ybllcodes.parentapplication.pojo.HraControl;
+import com.ybllcodes.parentapplication.utils.Constant;
+import com.ybllcodes.parentapplication.utils.OkHttpUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class NetworkMainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch networkSwitch;
     @Override
@@ -21,14 +29,14 @@ public class NetworkMainActivity extends AppCompatActivity implements CompoundBu
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        String value = isChecked?"1":"0";
+        Integer value = isChecked? 1: 0;
         //发送请求： http://localhost:8888/setrule?sid=01&&pid=02&type=201&value=1
-        if(isChecked){
-            //开启 - 发送请求：
-        }
 
-
-
+        String url = Constant.HOST + Constant.PORT + Constant.PREFIX + Constant.SET_PATH;
+        System.out.println(url);
+        HraControl hc = new HraControl("cde2","5678");
+        hc.setSetNetFirwall(value);
+        OkHttpUtils.sendHttp(url,hc);
 
         Toast.makeText(this,isChecked?"开启网络管控":"关闭网络管控",Toast.LENGTH_SHORT).show();
     }
