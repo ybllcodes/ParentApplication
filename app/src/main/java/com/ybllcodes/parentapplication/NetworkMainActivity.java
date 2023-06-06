@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NetworkMainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
-
+    private static final String SN = "parent01";
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch networkSwitch;
     @Override
@@ -32,7 +32,7 @@ public class NetworkMainActivity extends AppCompatActivity implements CompoundBu
         Integer value = isChecked? 1: 0;
         //发送请求： http://localhost:8888/setrule?sid=01&&pid=02&type=201&value=1
 
-        String url = Constant.HOST + Constant.PORT + Constant.PREFIX + Constant.SET_PATH;
+        String url = Constant.CONTROL_URL + Constant.SET_RULE;
         System.out.println(url);
         HraControl hc = new HraControl("cde2","5678");
         hc.setSetNetFirwall(value);

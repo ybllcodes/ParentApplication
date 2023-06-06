@@ -4,13 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="15dp"
     tools:context=".MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mac: parent01"/>
 
     <Button
-        android:id="@+id/btn_network_control"
+        android:id="@+id/btn_register_pmac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="注册PMac" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_getmac"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:hint="输入要绑定的Mac地址" />
+        <Button
+            android:id="@+id/btn_bind"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="绑定"/>
+        <Button
+            android:id="@+id/btn_unbind"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="解绑"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_enter_control"
         android:layout_margin="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="网络管控" />
+        android:text="进入管控" />
 
 </LinearLayout>
